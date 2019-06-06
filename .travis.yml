@@ -8,10 +8,6 @@ cache: bundler
 git:
   depth: 3
 
-# before_install:
-#   - export TZ=UTC
-#   - gem install -v 1.17.2 bundler --no-rdoc --no-ri
-
 before_script:
   # Setup to support the CodeClimate test coverage submission
   # As per CodeClimate's documentation, they suggest only running
