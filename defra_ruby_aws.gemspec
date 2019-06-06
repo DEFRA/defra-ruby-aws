@@ -38,7 +38,6 @@ Gem::Specification.new do |spec|
   spec.test_files = Dir["spec/**/*"]
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler"
 
   spec.add_development_dependency "defra_ruby_style"
   # Shim to load environment variables from a .env file into ENV
