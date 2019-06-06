@@ -40,7 +40,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.17"
 
-  spec.add_development_dependency "pry-byebug"
   spec.add_development_dependency "defra_ruby_style"
   # Shim to load environment variables from a .env file into ENV
   spec.add_development_dependency "dotenv"
@@ -51,6 +50,7 @@ Gem::Specification.new do |spec|
   # ~/.bash_profile (or equivalent)
   # https://github.com/skywinder/github-changelog-generator#github-token
   spec.add_development_dependency "github_changelog_generator"
+  spec.add_development_dependency "pry-byebug"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "rubocop"
