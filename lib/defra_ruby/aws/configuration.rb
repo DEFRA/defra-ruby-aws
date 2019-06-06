@@ -7,6 +7,8 @@ module DefraRuby
     end
 
     def self.configure
+      require "aws-sdk-s3"
+
       self.configuration ||= Configuration.new
       yield(configuration)
     end
