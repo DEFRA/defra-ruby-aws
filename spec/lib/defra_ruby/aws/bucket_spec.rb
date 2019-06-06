@@ -12,7 +12,7 @@ module DefraRuby
           let(:configs) do
             {
               name: nil,
-              credentials: "12345"
+              credentials: {}
             }
           end
 
@@ -25,12 +25,42 @@ module DefraRuby
           let(:configs) do
             {
               name: "foo",
-              credentials: ""
+              credentials: {}
             }
           end
 
           it "raises an error" do
             expect { bucket }.to raise_error("DefraRuby::Aws buckets configurations: missing credentials for bucket foo")
+          end
+        end
+
+        context "when credentials access key id is missing" do
+          let(:configs) do
+            {
+              name: "foo",
+              credentials: {
+                secret_access_key: "secret"
+              }
+            }
+          end
+
+          it "raises an error" do
+            expect { bucket }.to raise_error("DefraRuby::Aws buckets configurations: missing access key id for bucket foo")
+          end
+        end
+
+        context "when credentials secret access key is missing" do
+          let(:configs) do
+            {
+              name: "foo",
+              credentials: {
+                access_key_id: "access_key"
+              }
+            }
+          end
+
+          it "raises an error" do
+            expect { bucket }.to raise_error("DefraRuby::Aws buckets configurations: missing secret access key for bucket foo")
           end
         end
       end
@@ -39,7 +69,10 @@ module DefraRuby
         let(:configs) do
           {
             name: "foo",
-            credentials: "secret"
+            credentials: {
+              secret_access_key: "secret",
+              access_key_id: "access_key"
+            }
           }
         end
 

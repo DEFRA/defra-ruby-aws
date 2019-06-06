@@ -27,8 +27,12 @@ module DefraRuby
       def s3
         ::Aws::S3::Resource.new(
           region: bucket.region,
-          credentials: bucket.credentials
+          credentials: aws_credentials #bucket.credentials
         )
+      end
+
+      def aws_credentials
+        ::Aws::Credentials.new(bucket.access_key_id, bucket.secret_access_key)
       end
     end
   end

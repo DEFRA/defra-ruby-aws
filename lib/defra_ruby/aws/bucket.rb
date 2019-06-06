@@ -13,6 +13,14 @@ module DefraRuby
         validate!
       end
 
+      def access_key_id
+        credentials[:access_key_id]
+      end
+
+      def secret_access_key
+        credentials[:secret_access_key]
+      end
+
       def load(file)
         BucketLoaderService.run(self, file)
       end
@@ -41,15 +49,25 @@ module DefraRuby
       end
 
       def validate_presence_of_credentials!
-        raise_not_valid_credentials if credentials.nil? || credentials.empty?
-      end
-
-      def raise_not_valid_credentials
-        raise("DefraRuby::Aws buckets configurations: missing credentials for bucket #{bucket_name}")
+        raise_missing_credentials if credentials.nil? || credentials.empty?
+        raise_missing_access_key if access_key_id.nil? || access_key_id.empty?
+        raise_missing_secret_access_key if secret_access_key.nil? || secret_access_key.empty?
       end
 
       def raise_not_valid_name
         raise("DefraRuby::Aws buckets configurations: missing bucket name")
+      end
+
+      def raise_missing_credentials
+        raise("DefraRuby::Aws buckets configurations: missing credentials for bucket #{bucket_name}")
+      end
+
+      def raise_missing_access_key
+        raise("DefraRuby::Aws buckets configurations: missing access key id for bucket #{bucket_name}")
+      end
+
+      def raise_missing_secret_access_key
+        raise("DefraRuby::Aws buckets configurations: missing secret access key for bucket #{bucket_name}")
       end
     end
   end
