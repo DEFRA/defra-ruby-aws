@@ -1,6 +1,11 @@
 # DefraRuby::Aws
 
 [![Build Status](https://travis-ci.com/DEFRA/defra-ruby-aws.svg?branch=master)](https://travis-ci.com/DEFRA/defra-ruby-aws)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a0f8611f1a879786f642/maintainability)](https://codeclimate.com/github/DEFRA/defra-ruby-aws/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a0f8611f1a879786f642/test_coverage)](https://codeclimate.com/github/DEFRA/defra-ruby-aws/test_coverage)
+[![security](https://hakiri.io/github/DEFRA/defra-ruby-aws/master.svg)](https://hakiri.io/github/DEFRA/defra-ruby-aws/master)
+[![Gem Version](https://badge.fury.io/rb/defra_ruby_aws.svg)](https://badge.fury.io/rb/defra_ruby_aws)
+[![Licence](https://img.shields.io/badge/Licence-OGLv3-blue.svg)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3)
 
 DEFRA AWS helpers for connecting Rails application to the DEFRA AWS instances.
 
