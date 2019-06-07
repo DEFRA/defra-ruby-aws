@@ -25,8 +25,8 @@ Or install it yourself as:
 Add a new bucket with:
 
 ```
-# config/initializers/defra-ruby-aws.rb
-require "defra-ruby-aws"
+# config/initializers/defra_ruby_aws.rb
+require "defra_ruby/aws"
 
 DefraRuby::Aws.configure do |config|
   config.buckets = [{
@@ -34,7 +34,7 @@ DefraRuby::Aws.configure do |config|
     name: "defra-ruby-aws",
     # AWS bucket access credentials, required
     credentials: {
-      access_key_id: "ACCES_KEY_ID",
+      access_key_id: "ACCESS_KEY_ID",
       secret_access_key: "SECRET_ACCESS_KEY"
     },
     # optional - Default to "eu-west-1"
