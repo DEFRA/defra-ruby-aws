@@ -2,17 +2,6 @@
 
 module DefraRuby
   module Aws
-    class << self
-      attr_accessor :configuration
-    end
-
-    def self.configure
-      require "aws-sdk-s3"
-
-      self.configuration ||= Configuration.new
-      yield(configuration)
-    end
-
     class Configuration
       attr_reader :buckets
 

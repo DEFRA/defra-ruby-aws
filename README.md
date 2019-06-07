@@ -20,9 +20,43 @@ Or install it yourself as:
 
     $ gem install defra_ruby_aws
 
+## Configuration
+
+Add a new bucket with:
+
+```
+# config/initializers/defra-ruby-aws.rb
+require "defra-ruby-aws"
+
+DefraRuby::Aws.configure do |config|
+  config.buckets = [{
+    # bucket's name, required
+    name: "defra-ruby-aws",
+    # AWS bucket access credentials, required
+    credentials: {
+      access_key_id: "ACCES_KEY_ID",
+      secret_access_key: "SECRET_ACCESS_KEY"
+    },
+    # optional - Default to "eu-west-1"
+    region: "eu-west-1"
+  }]
+end
+```
+
 ## Usage
 
-TBD
+```
+file_to_upload = Tempfile.new("test-upload-file.csv")
+bucket = DefraRuby::Aws.get_bucket("defra-ruby-aws")
+response = bucket.load(file_to_upload)
+
+if response.successful?
+  # Do something
+else
+  response.error # return the failure error
+  # Do something else
+end
+```
 
 ## Contributing to this project
 
