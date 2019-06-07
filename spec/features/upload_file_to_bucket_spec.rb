@@ -37,13 +37,13 @@ RSpec.describe "Defra Ruby AWS" do
   end
 
   def stub_successful_request
-    stub_request(:put, /https:\/\/bulk-test\.s3\.eu-west-1\.amazonaws\.com\/test-bucket-load\..+/)
+    stub_request(:put, %r{https:\/\/bulk-test\.s3\.eu-west-1\.amazonaws\.com\/test-bucket-load\..+})
   end
 
   def stub_failing_request
     stub_request(
       :put,
-      /https:\/\/bulk-test\.s3\.eu-west-1\.amazonaws\.com\/test-bucket-load\..+/
+      %r{https:\/\/bulk-test\.s3\.eu-west-1\.amazonaws\.com\/test-bucket-load\..+}
     ).to_return(
       status: 403
     )

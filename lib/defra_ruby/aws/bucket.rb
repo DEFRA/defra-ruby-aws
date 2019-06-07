@@ -53,9 +53,9 @@ module DefraRuby
       end
 
       def validate_presence_of_credentials!
-        raise_missing_credentials if credentials.nil? || credentials.empty?
-        raise_missing_access_key if access_key_id.nil? || access_key_id.empty?
-        raise_missing_secret_access_key if secret_access_key.nil? || secret_access_key.empty?
+        raise_missing_credentials if empty?(credentials)
+        raise_missing_access_key if empty?(access_key_id)
+        raise_missing_secret_access_key if empty?(secret_access_key)
       end
 
       def raise_not_valid_name
@@ -72,6 +72,10 @@ module DefraRuby
 
       def raise_missing_secret_access_key
         raise("DefraRuby::Aws buckets configurations: missing secret access key for bucket #{bucket_name}")
+      end
+
+      def empty?(object)
+        object.nil? || object.empty?
       end
     end
   end
