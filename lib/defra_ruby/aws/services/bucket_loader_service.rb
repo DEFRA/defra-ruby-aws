@@ -13,7 +13,7 @@ module DefraRuby
       end
 
       def run
-        s3_bucket.object(File.basename(file.path)).upload_file(file.path, server_side_encryption: :AES256)
+        Response.new(response_exe)
       end
 
       private
@@ -27,12 +27,18 @@ module DefraRuby
       def s3
         ::Aws::S3::Resource.new(
           region: bucket.region,
-          credentials: aws_credentials #bucket.credentials
+          credentials: aws_credentials
         )
       end
 
       def aws_credentials
         ::Aws::Credentials.new(bucket.access_key_id, bucket.secret_access_key)
+      end
+
+      def response_exe
+        lambda do
+          s3_bucket.object(File.basename(file.path)).upload_file(file.path, server_side_encryption: :AES256)
+        end
       end
     end
   end

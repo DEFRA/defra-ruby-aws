@@ -29,7 +29,7 @@ module DefraRuby
           expect(s3_bucket).to receive(:object).with("test.csv").and_return(s3_object)
           expect(s3_object).to receive(:upload_file).with("foo/bar/baz/test.csv", server_side_encryption: :AES256).and_return(result)
 
-          expect(described_class.run(bucket, file)).to eq(result)
+          expect(described_class.run(bucket, file)).to be_a(Response)
         end
       end
     end
