@@ -3,6 +3,8 @@
 module DefraRuby
   module Aws
     class BucketLoaderService
+      include HasAwsBucketConfiguration
+
       def self.run(bucket, file)
         new(bucket, file).run
       end
@@ -19,21 +21,6 @@ module DefraRuby
       private
 
       attr_reader :bucket, :file
-
-      def s3_bucket
-        s3.bucket(bucket.bucket_name)
-      end
-
-      def s3
-        ::Aws::S3::Resource.new(
-          region: bucket.region,
-          credentials: aws_credentials
-        )
-      end
-
-      def aws_credentials
-        ::Aws::Credentials.new(bucket.access_key_id, bucket.secret_access_key)
-      end
 
       def response_exe
         lambda do

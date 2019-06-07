@@ -45,6 +45,8 @@ end
 
 ## Usage
 
+### Upload a file
+
 ```
 file_to_upload = Tempfile.new("test-upload-file.csv")
 bucket = DefraRuby::Aws.get_bucket("defra-ruby-aws")
@@ -56,6 +58,13 @@ else
   response.error # return the failure error
   # Do something else
 end
+```
+
+### Generate a presigned URL for download
+
+```
+bucket = DefraRuby::Aws.get_bucket("defra-ruby-aws")
+presigned_url = bucket.presigned_url("test-upload-file.csv")
 ```
 
 ## Contributing to this project

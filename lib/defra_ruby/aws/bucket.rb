@@ -25,6 +25,10 @@ module DefraRuby
         BucketLoaderService.run(self, file)
       end
 
+      def presigned_url(file_name)
+        PresignedUrlService.run(self, file_name)
+      end
+
       private
 
       attr_writer :region
