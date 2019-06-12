@@ -1,12 +1,19 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=9a0d95efc12238c195685a08da6071e41d25bf6475723adf8f419095b56e0ac5
+
 language: ruby
 rvm: 2.4.2
 cache: bundler
 
 # Travis CI clones repositories to a depth of 50 commits, which is only really
 # useful if you are performing git operations.
-# https://docs.travis-ci.com/user/customizing-the-build/#git-clone-depth
+# https://docs.travis-ci.com/user/customizing-the-build/#Git-Clone-Depth
 git:
   depth: 3
+
+before_install:
+  - export TZ=UTC
 
 before_script:
   # Setup to support the CodeClimate test coverage submission
