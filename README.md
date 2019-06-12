@@ -1,35 +1,33 @@
 # DefraRuby::Aws
 
 [![Build Status](https://travis-ci.com/DEFRA/defra-ruby-aws.svg?branch=master)](https://travis-ci.com/DEFRA/defra-ruby-aws)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a0f8611f1a879786f642/maintainability)](https://codeclimate.com/github/DEFRA/defra-ruby-aws/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/a0f8611f1a879786f642/test_coverage)](https://codeclimate.com/github/DEFRA/defra-ruby-aws/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4541a29b2c675b03a5ed/maintainability)](https://codeclimate.com/github/DEFRA/defra-ruby-aws/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4541a29b2c675b03a5ed/test_coverage)](https://codeclimate.com/github/DEFRA/defra-ruby-aws/test_coverage)
 [![security](https://hakiri.io/github/DEFRA/defra-ruby-aws/master.svg)](https://hakiri.io/github/DEFRA/defra-ruby-aws/master)
 [![Gem Version](https://badge.fury.io/rb/defra_ruby_aws.svg)](https://badge.fury.io/rb/defra_ruby_aws)
 [![Licence](https://img.shields.io/badge/Licence-OGLv3-blue.svg)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3)
 
-DEFRA AWS helpers for connecting Rails application to the DEFRA AWS instances.
+Package of Ruby helpers for connecting Rails applications to AWS S3.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application's Gemfile
 
 ```ruby
 gem 'defra_ruby_aws'
 ```
 
-And then execute:
+And then update your dependencies by calling
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install defra_ruby_aws
+```bash
+bundle install
+```
 
 ## Configuration
 
 Add a new bucket with:
 
-```
+```ruby
 # config/initializers/defra_ruby_aws.rb
 require "defra_ruby/aws"
 
@@ -52,7 +50,7 @@ end
 
 ### Upload a file
 
-```
+```ruby
 file_to_upload = Tempfile.new("test-upload-file.csv")
 bucket = DefraRuby::Aws.get_bucket("defra-ruby-aws")
 response = bucket.load(file_to_upload)
@@ -67,7 +65,7 @@ end
 
 ### Generate a presigned URL for download
 
-```
+```ruby
 bucket = DefraRuby::Aws.get_bucket("defra-ruby-aws")
 presigned_url = bucket.presigned_url("test-upload-file.csv")
 ```
