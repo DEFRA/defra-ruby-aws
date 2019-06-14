@@ -1,6 +1,6 @@
 # Change Log
 
-## [v0.0.1](https://github.com/DEFRA/defra-ruby-aws/tree/v0.0.1) (2019-06-12)
+## [v0.1.0](https://github.com/DEFRA/defra-ruby-aws/tree/v0.1.0) (2019-06-14)
 **Implemented enhancements:**
 
 - Implement pre-signed url method in the Bucket object [\#5](https://github.com/DEFRA/defra-ruby-aws/pull/5) ([cintamani](https://github.com/cintamani))
@@ -11,6 +11,7 @@
 
 **Merged pull requests:**
 
+- Update gemspec to match our other gems [\#10](https://github.com/DEFRA/defra-ruby-aws/pull/10) ([Cruikshanks](https://github.com/Cruikshanks))
 - Update .travis.yml to send test coverage [\#9](https://github.com/DEFRA/defra-ruby-aws/pull/9) ([Cruikshanks](https://github.com/Cruikshanks))
 - Update rspec setup [\#8](https://github.com/DEFRA/defra-ruby-aws/pull/8) ([Cruikshanks](https://github.com/Cruikshanks))
 - Add builds status badges to the Readme file [\#7](https://github.com/DEFRA/defra-ruby-aws/pull/7) ([cintamani](https://github.com/cintamani))
