@@ -29,6 +29,10 @@ module DefraRuby
         PresignedUrlService.run(self, file_name)
       end
 
+      def delete(file_name)
+        DeleteFileFromBucketService.run(self, file_name)
+      end
+
       private
 
       attr_writer :region
