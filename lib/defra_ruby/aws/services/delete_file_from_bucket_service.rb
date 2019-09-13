@@ -26,7 +26,7 @@ module DefraRuby
         lambda do
           delete_object_output = s3_bucket.object(file_name).delete
 
-          delete_object_output.request_charged.length > 0
+          delete_object_output.request_charged.length.positive?
         end
       end
     end
