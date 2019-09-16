@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.2.0](https://github.com/DEFRA/defra-ruby-aws/tree/v0.2.0) (2019-09-16)
+[Full Changelog](https://github.com/DEFRA/defra-ruby-aws/compare/v0.1.0...v0.2.0)
+
+**Implemented enhancements:**
+
+- Add ability to delete a file from a bucket [\#11](https://github.com/DEFRA/defra-ruby-aws/pull/11) ([cintamani](https://github.com/cintamani))
+
 ## [v0.1.0](https://github.com/DEFRA/defra-ruby-aws/tree/v0.1.0) (2019-06-14)
 **Implemented enhancements:**
 
