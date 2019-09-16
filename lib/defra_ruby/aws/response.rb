@@ -2,6 +2,8 @@
 
 module DefraRuby
   module Aws
+    class UnsuccessfulOperation < StandardError; end
+
     class Response
       attr_reader :error
 
@@ -21,7 +23,7 @@ module DefraRuby
       attr_reader :success
 
       def capture_response(response_exe)
-        response_exe.call
+        raise UnsuccessfulOperation unless response_exe.call
       rescue StandardError => e
         @error = e
         @success = false

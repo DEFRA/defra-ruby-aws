@@ -7,6 +7,7 @@ require_relative "aws/configuration"
 require_relative "aws/services/concerns/has_aws_bucket_configuration"
 require_relative "aws/services/bucket_loader_service"
 require_relative "aws/services/presigned_url_service"
+require_relative "aws/services/delete_file_from_bucket_service"
 
 module DefraRuby
   module Aws

@@ -17,7 +17,31 @@ module DefraRuby
         end
 
         context "when the response don't throw an error" do
-          let(:response_exe) { -> {} }
+          let(:response_exe) { -> { true } }
+
+          it "returns true" do
+            expect(response).to be_successful
+          end
+        end
+
+        context "when the response returns a nil object" do
+          let(:response_exe) { -> { nil } }
+
+          it "returns false" do
+            expect(response).to_not be_successful
+          end
+        end
+
+        context "when the response returns false" do
+          let(:response_exe) { -> { false } }
+
+          it "returns false" do
+            expect(response).to_not be_successful
+          end
+        end
+
+        context "when the response returns an object" do
+          let(:response_exe) { -> { "I am an object" } }
 
           it "returns true" do
             expect(response).to be_successful
@@ -35,7 +59,7 @@ module DefraRuby
         end
 
         context "when the response don't throw an error" do
-          let(:response_exe) { -> {} }
+          let(:response_exe) { -> { true } }
 
           it "returns a nil object" do
             expect(response.error).to be_nil

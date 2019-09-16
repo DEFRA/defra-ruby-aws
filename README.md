@@ -70,6 +70,19 @@ bucket = DefraRuby::Aws.get_bucket("defra-ruby-aws")
 presigned_url = bucket.presigned_url("test-upload-file.csv")
 ```
 
+### Delete a file from the bucket
+```ruby
+bucket = DefraRuby::Aws.get_bucket("defra-ruby-aws")
+response = bucket.delete("test-upload-file.csv")
+
+if response.successful?
+  # Do something
+else
+  response.error # return the failure error
+  # Do something else
+end
+```
+
 ## Contributing to this project
 
 If you have an idea you'd like to contribute please log an issue.
