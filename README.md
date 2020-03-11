@@ -1,8 +1,8 @@
-# DefraRuby::Aws
+# Defra Ruby Aws
 
 [![Build Status](https://travis-ci.com/DEFRA/defra-ruby-aws.svg?branch=master)](https://travis-ci.com/DEFRA/defra-ruby-aws)
-[![Maintainability](https://api.codeclimate.com/v1/badges/4541a29b2c675b03a5ed/maintainability)](https://codeclimate.com/github/DEFRA/defra-ruby-aws/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/4541a29b2c675b03a5ed/test_coverage)](https://codeclimate.com/github/DEFRA/defra-ruby-aws/test_coverage)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_defra-ruby-aws&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=DEFRA_defra-ruby-aws)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_defra-ruby-aws&metric=coverage)](https://sonarcloud.io/dashboard?id=DEFRA_defra-ruby-aws)
 [![security](https://hakiri.io/github/DEFRA/defra-ruby-aws/master.svg)](https://hakiri.io/github/DEFRA/defra-ruby-aws/master)
 [![Gem Version](https://badge.fury.io/rb/defra_ruby_aws.svg)](https://badge.fury.io/rb/defra_ruby_aws)
 [![Licence](https://img.shields.io/badge/Licence-OGLv3-blue.svg)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3)
