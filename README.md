@@ -1,4 +1,4 @@
-# DefraRuby::Aws
+# Defra Ruby Aws
 
 [![Build Status](https://travis-ci.com/DEFRA/defra-ruby-aws.svg?branch=master)](https://travis-ci.com/DEFRA/defra-ruby-aws)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_defra-ruby-aws&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=DEFRA_defra-ruby-aws)
