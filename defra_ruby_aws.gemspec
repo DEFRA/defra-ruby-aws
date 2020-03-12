@@ -2,8 +2,8 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require_relative "./lib/defra_ruby"
-require_relative "./lib/defra_ruby/aws/version"
+# Maintain your gem"s version:
+require "defra_ruby/aws/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "defra_ruby_aws"
