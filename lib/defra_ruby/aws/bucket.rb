@@ -9,6 +9,7 @@ module DefraRuby
         @credentials = configs[:credentials]
         @bucket_name = configs[:name]
         @region = setup_region(configs[:region])
+        @use_aws_kms_encryption = configs[:use_aws_kms_encryption]
 
         validate!
       end
@@ -19,6 +20,14 @@ module DefraRuby
 
       def secret_access_key
         credentials[:secret_access_key]
+      end
+
+      def encryption_method
+        @_encryption_method ||= if @use_aws_kms_encryption
+                                  "aws:kms"
+                                else
+                                  :AES256
+                                end
       end
 
       def load(file)

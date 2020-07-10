@@ -18,7 +18,7 @@ module DefraRuby
             }
           end
 
-          it "loads the given file to the s3 bucket" do
+          it "loads the given file to the s3 bucket using :AES256" do
             aws_resource = double(:aws_resource)
             s3_bucket = double(:s3_bulk_bucket)
             file = double(:file, path: "foo/bar/baz/test.csv")
@@ -43,7 +43,7 @@ module DefraRuby
             }
           end
 
-          it "loads the given file to the s3 bucket" do
+          it "loads the given file to the s3 bucket using AWS:KMS" do
             aws_resource = double(:aws_resource)
             s3_bucket = double(:s3_bulk_bucket)
             file = double(:file, path: "foo/bar/baz/test.csv")
