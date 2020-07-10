@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.3.1](https://github.com/defra/defra-ruby-aws/tree/v0.3.1) (2020-07-10)
+
+[Full Changelog](https://github.com/defra/defra-ruby-aws/compare/v0.3.0...v0.3.1)
+
+**Implemented enhancements:**
+
+- Allow encryption method to be configurable [\#21](https://github.com/DEFRA/defra-ruby-aws/pull/21) ([Cruikshanks](https://github.com/Cruikshanks))
+
 ## [v0.3.0](https://github.com/defra/defra-ruby-aws/tree/v0.3.0) (2020-06-19)
 
 [Full Changelog](https://github.com/defra/defra-ruby-aws/compare/v0.2.0...v0.3.0)
