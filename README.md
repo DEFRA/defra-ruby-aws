@@ -41,7 +41,9 @@ DefraRuby::Aws.configure do |config|
       secret_access_key: "SECRET_ACCESS_KEY"
     },
     # optional - Default to "eu-west-1"
-    region: "eu-west-1"
+    region: "eu-west-2",
+    # optional - Default to false. Will use AES256
+    encrypt_with_kms: true
   }]
 end
 ```
@@ -71,6 +73,7 @@ presigned_url = bucket.presigned_url("test-upload-file.csv")
 ```
 
 ### Delete a file from the bucket
+
 ```ruby
 bucket = DefraRuby::Aws.get_bucket("defra-ruby-aws")
 response = bucket.delete("test-upload-file.csv")
@@ -93,7 +96,7 @@ All contributions should be submitted via a pull request.
 
 THIS INFORMATION IS LICENSED UNDER THE CONDITIONS OF THE OPEN GOVERNMENT LICENCE found at:
 
-http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3
+<http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3>
 
 The following attribution statement MUST be cited in your products and applications when using this information.
 
