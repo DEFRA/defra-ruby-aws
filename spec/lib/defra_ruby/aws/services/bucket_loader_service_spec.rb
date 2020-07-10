@@ -10,7 +10,7 @@ module DefraRuby
         let(:credentials) { { access_key_id: "key_id", secret_access_key: "secret" } }
         let(:bucket) { Bucket.new(configs) }
 
-        context "when 'use_aws_kms_encryption' is not set" do
+        context "when 'encrypt_with_kms' is not set" do
           let(:configs) do
             {
               credentials: credentials,
@@ -34,12 +34,12 @@ module DefraRuby
           end
         end
 
-        context "when 'use_aws_kms_encryption' is set" do
+        context "when 'encrypt_with_kms' is set" do
           let(:configs) do
             {
               credentials: credentials,
               name: "bulk",
-              use_aws_kms_encryption: true
+              encrypt_with_kms: true
             }
           end
 

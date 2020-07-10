@@ -3,13 +3,13 @@
 module DefraRuby
   module Aws
     class Bucket
-      attr_reader :bucket_name, :credentials, :region
+      attr_reader :bucket_name, :credentials, :region, :encrypt_with_kms
 
       def initialize(configs)
         @credentials = configs[:credentials]
         @bucket_name = configs[:name]
         @region = setup_region(configs[:region])
-        @use_aws_kms_encryption = configs[:use_aws_kms_encryption]
+        @encrypt_with_kms = setup_encrypt_with_kms(configs[:encrypt_with_kms])
 
         validate!
       end
@@ -22,12 +22,8 @@ module DefraRuby
         credentials[:secret_access_key]
       end
 
-      def encryption_method
-        @_encryption_method ||= if @use_aws_kms_encryption
-                                  "aws:kms"
-                                else
-                                  :AES256
-                                end
+      def encryption_type
+        @_encryption_type ||= @encrypt_with_kms ? "aws:kms" : :AES256
       end
 
       def load(file)
@@ -54,6 +50,14 @@ module DefraRuby
 
       def default_region
         "eu-west-1"
+      end
+
+      def setup_encrypt_with_kms(encrypt_with_kms)
+        return false if encrypt_with_kms.nil?
+
+        # Handle the argument being either a string or a boolean, or some other
+        # value e.g. "foo"
+        encrypt_with_kms.to_s.downcase == "true"
       end
 
       def validate!
