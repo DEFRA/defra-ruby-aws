@@ -24,7 +24,7 @@ module DefraRuby
 
       def response_exe
         lambda do
-          s3_bucket.object(File.basename(file.path)).upload_file(file.path, server_side_encryption: "aws:kms")
+          s3_bucket.object(File.basename(file.path)).upload_file(file.path, server_side_encryption: :AES256)
         end
       end
     end
