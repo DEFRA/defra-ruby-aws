@@ -109,6 +109,114 @@ module DefraRuby
             expect(bucket.region).to eq(region)
           end
         end
+
+        context "when 'encrypt_with_kms' is not set" do
+          context "because it has not been added to the config" do
+            let(:configs) do
+              {
+                name: "foo",
+                credentials: credentials
+              }
+            end
+
+            it "defaults encrypt_with_kms to false" do
+              expect(bucket.encrypt_with_kms).to be false
+            end
+
+            it "sets encryption_type to :AES256" do
+              expect(bucket.encryption_type).to eq(:AES256)
+            end
+          end
+
+          context "because its value is an empty string" do
+            let(:configs) do
+              {
+                name: "foo",
+                credentials: credentials,
+                encrypt_with_kms: ""
+              }
+            end
+
+            it "defaults encrypt_with_kms to false" do
+              expect(bucket.encrypt_with_kms).to be false
+            end
+
+            it "sets encryption_type to :AES256" do
+              expect(bucket.encryption_type).to eq(:AES256)
+            end
+          end
+        end
+
+        context "when 'encrypt_with_kms' is set" do
+          let(:encrypt_with_kms) { true }
+          let(:configs) do
+            {
+              name: "foo",
+              credentials: credentials,
+              encrypt_with_kms: encrypt_with_kms
+            }
+          end
+
+          context "to true as a boolean" do
+            let(:encrypt_with_kms) { true }
+
+            it "defaults encrypt_with_kms to true" do
+              expect(bucket.encrypt_with_kms).to be true
+            end
+
+            it "sets encryption_type to aws:kms" do
+              expect(bucket.encryption_type).to eq("aws:kms")
+            end
+          end
+
+          context "to true as a string" do
+            let(:encrypt_with_kms) { "true" }
+
+            it "defaults encrypt_with_kms to true" do
+              expect(bucket.encrypt_with_kms).to be true
+            end
+
+            it "sets encryption_type to aws:kms" do
+              expect(bucket.encryption_type).to eq("aws:kms")
+            end
+          end
+
+          context "to false as a boolean" do
+            let(:encrypt_with_kms) { false }
+
+            it "defaults encrypt_with_kms to false" do
+              expect(bucket.encrypt_with_kms).to be false
+            end
+
+            it "sets encryption_type to aws:kms" do
+              expect(bucket.encryption_type).to eq(:AES256)
+            end
+          end
+
+          context "to false as a string" do
+            let(:encrypt_with_kms) { "false" }
+
+            it "defaults encrypt_with_kms to false" do
+              expect(bucket.encrypt_with_kms).to be false
+            end
+
+            it "sets encryption_type to aws:kms" do
+              expect(bucket.encryption_type).to eq(:AES256)
+            end
+          end
+
+          context "to something not recognised" do
+            let(:encrypt_with_kms) { "bar" }
+
+            it "defaults encrypt_with_kms to false" do
+              expect(bucket.encrypt_with_kms).to be false
+            end
+
+            it "sets encryption_type to :AES256" do
+              expect(bucket.encryption_type).to eq(:AES256)
+            end
+          end
+        end
       end
 
       describe "#load" do
