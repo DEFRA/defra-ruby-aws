@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.4.0](https://github.com/defra/defra-ruby-aws/tree/v0.4.0) (2020-12-07)
+
+[Full Changelog](https://github.com/defra/defra-ruby-aws/compare/v0.3.1...v0.4.0)
+
+**Implemented enhancements:**
+
+- Add options to upload file in subfolder [\#23](https://github.com/DEFRA/defra-ruby-aws/pull/23) ([irisfaraway](https://github.com/irisfaraway))
+
+**Merged pull requests:**
+
+- Switch CI to GitHub Actions [\#22](https://github.com/DEFRA/defra-ruby-aws/pull/22) ([irisfaraway](https://github.com/irisfaraway))
+
 ## [v0.3.1](https://github.com/defra/defra-ruby-aws/tree/v0.3.1) (2020-07-10)
 
 [Full Changelog](https://github.com/defra/defra-ruby-aws/compare/v0.3.0...v0.3.1)
