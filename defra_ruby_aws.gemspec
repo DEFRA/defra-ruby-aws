@@ -29,6 +29,8 @@ Gem::Specification.new do |spec|
       "public gem pushes."
   end
 
+  spec.required_ruby_version = ">= 2.3.1"
+
   # Use the AWS SDK to interact with S3
   spec.add_dependency "aws-sdk-s3"
 
