@@ -26,6 +26,19 @@ module DefraRuby
           expect(presigned_url).to include("Amz-Credential")
           expect(presigned_url).to include("Amz-Signature")
         end
+
+        context "when an s3_directory is provided" do
+          let(:presigned_url) { described_class.run(bucket, "testfile.csv", { s3_directory: "directory" }) }
+
+          it "returns a presigned url for a given file in the bucket" do
+            expect(presigned_url).to include("https://test.s3.eu-west-1.amazonaws.com/directory/testfile.csv")
+            expect(presigned_url).to include("response-content-disposition=attachment")
+            expect(presigned_url).to include("response-content-type=text%2Fcsv")
+            expect(presigned_url).to include("Amz-Expires")
+            expect(presigned_url).to include("Amz-Credential")
+            expect(presigned_url).to include("Amz-Signature")
+          end
+        end
       end
     end
   end

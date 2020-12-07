@@ -12,7 +12,7 @@ module DefraRuby
       def initialize(bucket, file, options)
         @bucket = bucket
         @file = file
-        @dir = options[:upload_directory]
+        @dir = options[:s3_directory]
       end
 
       def run
@@ -21,7 +21,7 @@ module DefraRuby
 
       private
 
-      attr_reader :bucket, :file
+      attr_reader :bucket, :file, :dir
 
       def response_exe
         lambda do
@@ -32,7 +32,7 @@ module DefraRuby
       end
 
       def destination
-        [*@dir, File.basename(file.path)].compact.join("/")
+        [*dir, File.basename(file.path)].compact.join("/")
       end
     end
   end

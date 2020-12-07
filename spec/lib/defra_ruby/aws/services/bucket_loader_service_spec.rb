@@ -33,14 +33,14 @@ module DefraRuby
             expect(described_class.run(bucket, file)).to be_a(Response)
           end
 
-          context "when an upload_directory is provided" do
+          context "when an s3_directory is provided" do
             it "loads the given file to the s3 bucket at the correct location using AWS:KMS" do
               aws_resource = double(:aws_resource)
               s3_bucket = double(:s3_bulk_bucket)
               file = double(:file, path: "foo/bar/baz/test.csv")
               s3_object = double(:s3_object)
               result = double(:result)
-              options = { upload_directory: "directory" }
+              options = { s3_directory: "directory" }
 
               expect(::Aws::S3::Resource).to receive(:new).and_return(aws_resource)
               expect(aws_resource).to receive(:bucket).with("bulk").and_return(s3_bucket)
@@ -76,14 +76,14 @@ module DefraRuby
             expect(described_class.run(bucket, file)).to be_a(Response)
           end
 
-          context "when an upload_directory is provided" do
+          context "when an s3_directory is provided" do
             it "loads the given file to the s3 bucket at the correct location using AWS:KMS" do
               aws_resource = double(:aws_resource)
               s3_bucket = double(:s3_bulk_bucket)
               file = double(:file, path: "foo/bar/baz/test.csv")
               s3_object = double(:s3_object)
               result = double(:result)
-              options = { upload_directory: ["directory", "second_directory"] }
+              options = { s3_directory: ["directory", "second_directory"] }
 
               expect(::Aws::S3::Resource).to receive(:new).and_return(aws_resource)
               expect(aws_resource).to receive(:bucket).with("bulk").and_return(s3_bucket)
