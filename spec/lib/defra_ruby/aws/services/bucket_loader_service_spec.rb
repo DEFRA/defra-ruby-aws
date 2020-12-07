@@ -83,7 +83,7 @@ module DefraRuby
               file = double(:file, path: "foo/bar/baz/test.csv")
               s3_object = double(:s3_object)
               result = double(:result)
-              options = { s3_directory: ["directory", "second_directory"] }
+              options = { s3_directory: %w[directory second_directory] }
 
               expect(::Aws::S3::Resource).to receive(:new).and_return(aws_resource)
               expect(aws_resource).to receive(:bucket).with("bulk").and_return(s3_bucket)
