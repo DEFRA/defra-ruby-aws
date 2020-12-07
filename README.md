@@ -1,6 +1,6 @@
 # Defra Ruby Aws
 
-[![Build Status](https://travis-ci.com/DEFRA/defra-ruby-aws.svg?branch=main)](https://travis-ci.com/DEFRA/defra-ruby-aws)
+![Build Status](https://github.com/DEFRA/defra-ruby-aws/workflows/CI/badge.svg?branch=main)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_defra-ruby-aws&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=DEFRA_defra-ruby-aws)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_defra-ruby-aws&metric=coverage)](https://sonarcloud.io/dashboard?id=DEFRA_defra-ruby-aws)
 [![security](https://hakiri.io/github/DEFRA/defra-ruby-aws/main.svg)](https://hakiri.io/github/DEFRA/defra-ruby-aws/main)
