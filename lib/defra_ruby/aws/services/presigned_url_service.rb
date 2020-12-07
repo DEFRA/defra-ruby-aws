@@ -5,17 +5,18 @@ module DefraRuby
     class PresignedUrlService
       include HasAwsBucketConfiguration
 
-      def self.run(bucket, file_name)
-        new(bucket, file_name).run
+      def self.run(bucket, file_name, options = {})
+        new(bucket, file_name, options).run
       end
 
-      def initialize(bucket, file_name)
+      def initialize(bucket, file_name, options)
         @bucket = bucket
         @file_name = file_name
+        @dir = options[:s3_directory]
       end
 
       def run
-        s3_bucket.object(file_name).presigned_url(
+        s3_bucket.object(destination).presigned_url(
           :get,
           expires_in: 20 * 60, # 20 minutes in seconds
           secure: true,
@@ -26,7 +27,11 @@ module DefraRuby
 
       private
 
-      attr_reader :bucket, :file_name
+      attr_reader :bucket, :file_name, :dir
+
+      def destination
+        [*dir, file_name].compact.join("/")
+      end
     end
   end
 end

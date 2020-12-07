@@ -5,13 +5,14 @@ module DefraRuby
     class BucketLoaderService
       include HasAwsBucketConfiguration
 
-      def self.run(bucket, file)
-        new(bucket, file).run
+      def self.run(bucket, file, options = {})
+        new(bucket, file, options).run
       end
 
-      def initialize(bucket, file)
+      def initialize(bucket, file, options)
         @bucket = bucket
         @file = file
+        @dir = options[:s3_directory]
       end
 
       def run
@@ -20,14 +21,18 @@ module DefraRuby
 
       private
 
-      attr_reader :bucket, :file
+      attr_reader :bucket, :file, :dir
 
       def response_exe
         lambda do
           s3_bucket
-            .object(File.basename(file.path))
+            .object(destination)
             .upload_file(file.path, server_side_encryption: bucket.encryption_type)
         end
+      end
+
+      def destination
+        [*dir, File.basename(file.path)].compact.join("/")
       end
     end
   end
