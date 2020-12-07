@@ -26,16 +26,16 @@ module DefraRuby
         @_encryption_type ||= @encrypt_with_kms ? "aws:kms" : :AES256
       end
 
-      def load(file)
-        BucketLoaderService.run(self, file)
+      def load(file, options = {})
+        BucketLoaderService.run(self, file, options)
       end
 
-      def presigned_url(file_name)
-        PresignedUrlService.run(self, file_name)
+      def presigned_url(file_name, options = {})
+        PresignedUrlService.run(self, file_name, options)
       end
 
-      def delete(file_name)
-        DeleteFileFromBucketService.run(self, file_name)
+      def delete(file_name, options = {})
+        DeleteFileFromBucketService.run(self, file_name, options)
       end
 
       private

@@ -230,9 +230,10 @@ module DefraRuby
         it "loads the given file to the s3 bucket" do
           result = double(:result)
           file = double(:file)
+          options = double(:options)
 
-          expect(BucketLoaderService).to receive(:run).with(bucket, file).and_return(result)
-          expect(bucket.load(file)).to eq(result)
+          expect(BucketLoaderService).to receive(:run).with(bucket, file, options).and_return(result)
+          expect(bucket.load(file, options)).to eq(result)
         end
       end
     end
