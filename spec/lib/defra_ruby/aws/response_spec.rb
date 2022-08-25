@@ -49,6 +49,16 @@ module DefraRuby
         end
       end
 
+      describe "#result" do
+        context "when the response includes a result object" do
+          let(:response_exe) { -> { "I am an object" } }
+
+          it "returns the s3 result object" do
+            expect(described_class.new(response_exe).result).to eq "I am an object"
+          end
+        end
+      end
+
       describe "#error" do
         context "when the response throws an error" do
           let(:response_exe) { -> { raise StandardError, "Boom!" } }
