@@ -1,5 +1,22 @@
 # Changelog
 
+## [Unreleased](https://github.com/defra/defra-ruby-aws/tree/HEAD)
+
+[Full Changelog](https://github.com/defra/defra-ruby-aws/compare/v0.5.0...HEAD)
+
+**Implemented enhancements:**
+
+- List files in an S3 folder [\#26](https://github.com/DEFRA/defra-ruby-aws/pull/26) ([PaulDoyle-DEFRA](https://github.com/PaulDoyle-DEFRA))
+
+**Merged pull requests:**
+
+- Update CI link in SonarCloud config [\#25](https://github.com/DEFRA/defra-ruby-aws/pull/25) ([irisfaraway](https://github.com/irisfaraway))
+- Create Dependabot config file [\#24](https://github.com/DEFRA/defra-ruby-aws/pull/24) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+## [v0.5.0](https://github.com/defra/defra-ruby-aws/tree/v0.5.0) (2022-08-26)
+
+[Full Changelog](https://github.com/defra/defra-ruby-aws/compare/v0.4.0...v0.5.0)
+
 ## [v0.4.0](https://github.com/defra/defra-ruby-aws/tree/v0.4.0) (2020-12-07)
 
 [Full Changelog](https://github.com/defra/defra-ruby-aws/compare/v0.3.1...v0.4.0)
