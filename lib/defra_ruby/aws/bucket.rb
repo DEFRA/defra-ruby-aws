@@ -38,6 +38,10 @@ module DefraRuby
         DeleteFileFromBucketService.run(self, file_name, options)
       end
 
+      def list_files(directory_name, options = {})
+        ListBucketFilesService.run(self, directory_name, options)
+      end
+
       private
 
       attr_writer :region
