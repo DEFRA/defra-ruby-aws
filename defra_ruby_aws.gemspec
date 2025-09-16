@@ -30,8 +30,10 @@ Gem::Specification.new do |spec|
       "public gem pushes."
   end
 
-  # Use the AWS SDK to interact with S3
-  spec.add_dependency "aws-sdk-s3"
+  # Use the AWS SDK to interact with S3.
+  # Pin the version for now to avoid deprecation warning in some services.
+  # TODO: Refactor to address the deprecation warning and unpin.
+  spec.add_dependency "aws-sdk-s3", "< 1.197"
 
   spec.add_development_dependency "defra_ruby_style"
   # Shim to load environment variables from a .env file into ENV
