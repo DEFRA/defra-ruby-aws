@@ -38,10 +38,10 @@ jobs:
 
       - name: Analyze with SonarCloud
         uses: sonarsource/sonarcloud-github-action@v2
-          with:
-            args: >
-              -Dsonar.projectKey=DEFRA_defra-ruby-aws
-              -Dsonar.organization=defra
+        with:
+          args: >
+            -Dsonar.projectKey=DEFRA_defra-ruby-aws
+            -Dsonar.organization=defra
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This is provided automatically by GitHub
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # This needs to be set in your repo; settings -> secrets
