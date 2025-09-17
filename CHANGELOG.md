@@ -6,10 +6,12 @@
 
 **Implemented enhancements:**
 
-- List files in an S3 folder [\#26](https://github.com/DEFRA/defra-ruby-aws/pull/26) ([PaulDoyle-DEFRA](https://github.com/PaulDoyle-DEFRA))
+- List files in an S3 folder [\#26](https://github.com/DEFRA/defra-ruby-aws/pull/26) ([PaulDoyle-EA](https://github.com/PaulDoyle-EA))
 
 **Merged pull requests:**
 
+- chore/RUBY-4020\_aws\_deprecation\_warning [\#28](https://github.com/DEFRA/defra-ruby-aws/pull/28) ([PaulDoyle-EA](https://github.com/PaulDoyle-EA))
+- Release/v0.5.0 [\#27](https://github.com/DEFRA/defra-ruby-aws/pull/27) ([PaulDoyle-EA](https://github.com/PaulDoyle-EA))
 - Update CI link in SonarCloud config [\#25](https://github.com/DEFRA/defra-ruby-aws/pull/25) ([irisfaraway](https://github.com/irisfaraway))
 - Create Dependabot config file [\#24](https://github.com/DEFRA/defra-ruby-aws/pull/24) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 

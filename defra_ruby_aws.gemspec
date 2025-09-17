@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.version       = DefraRuby::Aws::VERSION
   spec.authors       = ["Defra"]
   spec.email         = ["alan.cruikshanks@environment-agency.gov.uk"]
-  spec.license       = "The Open Government Licence (OGL) Version 3"
+  spec.license       = "Open Government Licence v3.0"
   spec.homepage      = "https://github.com/DEFRA/defra-ruby-aws"
   spec.summary       = "Defra ruby on rails AWS helpers"
   spec.description   = "Package of AWS features commonly used in Defra Rails based digital services"
@@ -34,22 +34,6 @@ Gem::Specification.new do |spec|
   # Pin the version for now to avoid deprecation warning in some services.
   # TODO: Refactor to address the deprecation warning and unpin.
   spec.add_dependency "aws-sdk-s3", "< 1.197"
-
-  spec.add_development_dependency "defra_ruby_style"
-  # Shim to load environment variables from a .env file into ENV
-  spec.add_development_dependency "dotenv"
-  # Allows us to automatically generate the change log from the tags, issues,
-  # labels and pull requests on GitHub. Added as a dependency so all dev's have
-  # access to it to generate a log, and so they are using the same version.
-  # New dev's should first create GitHub personal app token and add it to their
-  # ~/.bash_profile (or equivalent)
-  # https://github.com/skywinder/github-changelog-generator#github-token
-  spec.add_development_dependency "github_changelog_generator"
-  spec.add_development_dependency "pry-byebug"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "simplecov", "~> 0.17.1"
-  spec.add_development_dependency "webmock"
 end
 
 # rubocop:enable Gemspec/RequiredRubyVersion
