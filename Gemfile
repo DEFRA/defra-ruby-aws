@@ -14,11 +14,16 @@ group :development, :test do
   # Shim to load environment variables from a .env file into ENV
   gem "dotenv"
 
+  gem "rubocop"
+  gem "rubocop-factory_bot"
+  gem "rubocop-rake"
+  gem "rubocop-rspec"
+
   gem "defra_ruby_style"
   gem "github_changelog_generator"
   gem "pry-byebug"
   gem "rake"
   gem "rspec", "~> 3.0"
-  gem "simplecov", "~> 0.17.1"
+  gem "simplecov", "~> 0.22.0"
   gem "webmock"
 end

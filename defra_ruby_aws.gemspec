@@ -17,7 +17,6 @@ Gem::Specification.new do |spec|
   spec.description   = "Package of AWS features commonly used in Defra Rails based digital services"
 
   spec.files = Dir["{bin,config,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
-  spec.test_files = Dir["spec/**/*"]
 
   spec.require_paths = ["lib"]
 
@@ -25,15 +24,13 @@ Gem::Specification.new do |spec|
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
     spec.metadata["allowed_push_host"] = "https://rubygems.org"
+    spec.metadata["rubygems_mfa_required"] = "true"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
+          "public gem pushes."
   end
 
-  # Use the AWS SDK to interact with S3.
-  # Pin the version for now to avoid deprecation warning in some services.
-  # TODO: Refactor to address the deprecation warning and unpin.
-  spec.add_dependency "aws-sdk-s3", "< 1.197"
+  spec.add_dependency "aws-sdk-s3"
 end
 
 # rubocop:enable Gemspec/RequiredRubyVersion
