@@ -1,12 +1,20 @@
 # frozen_string_literal: true
 
 require "simplecov"
+require "simplecov_json_formatter"
 
 # We start it with the rails param to ensure it includes coverage for all code
 # started by the rails app, and not just the files touched by our unit tests.
 # This gives us the most accurate assessment of our unit test coverage
 # https://github.com/colszowka/simplecov#getting-started
 SimpleCov.start do
+  enable_coverage :branch
+  formatter SimpleCov::Formatter::MultiFormatter.new(
+    [
+      SimpleCov::Formatter::HTMLFormatter,
+      SimpleCov::Formatter::JSONFormatter
+    ]
+  )
   # We filter the spec folder, mainly to ensure that any dummy apps don't get
   # included in the coverage report. However our intent is that nothing in the
   # spec folder should be included
