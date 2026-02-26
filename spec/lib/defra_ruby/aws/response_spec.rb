@@ -9,7 +9,7 @@ module DefraRuby
 
       describe "#successful?" do
         context "when the response throws an error" do
-          let(:response_exe) { -> { raise "Boom!" } }
+          let(:response_exe) { -> { raise StandardError, "Boom!" } }
 
           it "returns false" do
             expect(response).not_to be_successful
