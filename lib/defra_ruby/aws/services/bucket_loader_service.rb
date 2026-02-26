@@ -25,10 +25,24 @@ module DefraRuby
 
       def response_exe
         lambda do
-          s3_bucket
-            .object(destination)
-            .upload_file(file.path, server_side_encryption: bucket.encryption_type)
+          transfer_manager.upload_file(
+            file.path,
+            bucket: bucket.bucket_name,
+            key: destination,
+            server_side_encryption: bucket.encryption_type
+          )
         end
+      end
+
+      def transfer_manager
+        ::Aws::S3::TransferManager.new(client: s3_client)
+      end
+
+      def s3_client
+        ::Aws::S3::Client.new(
+          region: bucket.region,
+          credentials: aws_credentials
+        )
       end
 
       def destination
