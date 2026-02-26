@@ -67,7 +67,7 @@ module DefraRuby
         end
 
         context "when 'region' is not set" do
-          context "because it has not been added to the config" do
+          context "when it has not been added to the config" do
             let(:configs) do
               {
                 name: "foo",
@@ -80,7 +80,7 @@ module DefraRuby
             end
           end
 
-          context "because its value is an empty string" do
+          context "when its value is an empty string" do
             let(:configs) do
               {
                 name: "foo",
@@ -111,7 +111,7 @@ module DefraRuby
         end
 
         context "when 'encrypt_with_kms' is not set" do
-          context "because it has not been added to the config" do
+          context "when it has not been added to the config" do
             let(:configs) do
               {
                 name: "foo",
@@ -128,7 +128,7 @@ module DefraRuby
             end
           end
 
-          context "because its value is an empty string" do
+          context "when its value is an empty string" do
             let(:configs) do
               {
                 name: "foo",
@@ -157,7 +157,7 @@ module DefraRuby
             }
           end
 
-          context "to true as a boolean" do
+          context "with true as a boolean" do
             let(:encrypt_with_kms) { true }
 
             it "defaults encrypt_with_kms to true" do
@@ -169,7 +169,7 @@ module DefraRuby
             end
           end
 
-          context "to true as a string" do
+          context "with true as a string" do
             let(:encrypt_with_kms) { "true" }
 
             it "defaults encrypt_with_kms to true" do
@@ -181,7 +181,7 @@ module DefraRuby
             end
           end
 
-          context "to false as a boolean" do
+          context "with false as a boolean" do
             let(:encrypt_with_kms) { false }
 
             it "defaults encrypt_with_kms to false" do
@@ -193,7 +193,7 @@ module DefraRuby
             end
           end
 
-          context "to false as a string" do
+          context "with false as a string" do
             let(:encrypt_with_kms) { "false" }
 
             it "defaults encrypt_with_kms to false" do
@@ -205,7 +205,7 @@ module DefraRuby
             end
           end
 
-          context "to something not recognised" do
+          context "with something not recognised" do
             let(:encrypt_with_kms) { "bar" }
 
             it "defaults encrypt_with_kms to false" do
@@ -226,14 +226,17 @@ module DefraRuby
             credentials: credentials
           }
         end
+        let(:result) { instance_double(Response) }
+        let(:file) { instance_double(File) }
+        let(:options) { {} }
 
-        it "loads the given file to the s3 bucket" do
-          result = double(:result)
-          file = double(:file)
-          options = double(:options)
+        before do
+          allow(BucketLoaderService).to receive(:run).with(bucket, file, options).and_return(result)
+        end
 
-          expect(BucketLoaderService).to receive(:run).with(bucket, file, options).and_return(result)
+        it "loads the given file to the s3 bucket", :aggregate_failures do
           expect(bucket.load(file, options)).to eq(result)
+          expect(BucketLoaderService).to have_received(:run).with(bucket, file, options)
         end
       end
     end

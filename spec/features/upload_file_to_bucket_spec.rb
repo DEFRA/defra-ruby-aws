@@ -3,8 +3,9 @@
 require "spec_helper"
 
 RSpec.describe "Defra Ruby AWS" do
+  before { configure_gem }
+
   it "Upload a file to an AWS bucket" do
-    configure_gem
     stub_successful_request
 
     bucket = DefraRuby::Aws.get_bucket("bulk-test")
@@ -13,14 +14,13 @@ RSpec.describe "Defra Ruby AWS" do
     expect(response).to be_successful
   end
 
-  it "fails gracefully" do
-    configure_gem
+  it "fails gracefully", :aggregate_failures do
     stub_failing_request
 
     bucket = DefraRuby::Aws.get_bucket("bulk-test")
     response = bucket.load(Tempfile.new("test-bucket-load.test"))
 
-    expect(response).to_not be_successful
+    expect(response).not_to be_successful
     expect(response.error).to be_a(Aws::S3::Errors::Forbidden)
   end
 

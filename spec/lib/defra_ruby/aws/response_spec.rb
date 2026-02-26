@@ -12,7 +12,7 @@ module DefraRuby
           let(:response_exe) { -> { raise "Boom!" } }
 
           it "returns false" do
-            expect(response).to_not be_successful
+            expect(response).not_to be_successful
           end
         end
 
@@ -25,10 +25,10 @@ module DefraRuby
         end
 
         context "when the response returns a nil object" do
-          let(:response_exe) { -> { nil } }
+          let(:response_exe) { -> {} }
 
           it "returns false" do
-            expect(response).to_not be_successful
+            expect(response).not_to be_successful
           end
         end
 
@@ -36,7 +36,7 @@ module DefraRuby
           let(:response_exe) { -> { false } }
 
           it "returns false" do
-            expect(response).to_not be_successful
+            expect(response).not_to be_successful
           end
         end
 
