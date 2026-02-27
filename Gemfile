@@ -20,7 +20,7 @@ group :development, :test do
   gem "rubocop-rspec"
 
   gem "defra_ruby_style"
-  gem "github_changelog_generator"
+  gem "github_changelog_generator", "~> 1.15.2", require: false
   gem "pry-byebug"
   gem "rake"
   gem "rspec", "~> 3.0"
