@@ -9,7 +9,7 @@ module DefraRuby
         @credentials = configs[:credentials]
         @bucket_name = configs[:name]
         @region = setup_region(configs[:region])
-        @encrypt_with_kms = setup_encrypt_with_kms(configs[:encrypt_with_kms])
+        @encrypt_with_kms = configs[:encrypt_with_kms].to_s.downcase == "true"
 
         validate!
       end
@@ -54,14 +54,6 @@ module DefraRuby
 
       def default_region
         "eu-west-1"
-      end
-
-      def setup_encrypt_with_kms(encrypt_with_kms)
-        return false if encrypt_with_kms.nil?
-
-        # Handle the argument being either a string or a boolean, or some other
-        # value e.g. "foo"
-        encrypt_with_kms.to_s.downcase == "true"
       end
 
       def validate!

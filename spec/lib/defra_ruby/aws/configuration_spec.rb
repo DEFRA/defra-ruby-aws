@@ -10,12 +10,14 @@ module DefraRuby
       describe "#buckets=" do
         let(:buckets) { %i[foo bar baz] }
 
-        it "creates a list of buckets" do
-          expect(Bucket).to receive(:new).with(:foo)
-          expect(Bucket).to receive(:new).with(:bar)
-          expect(Bucket).to receive(:new).with(:baz)
+        before { allow(Bucket).to receive(:new) }
 
+        it "creates a list of buckets", :aggregate_failures do
           configuration.buckets = buckets
+
+          expect(Bucket).to have_received(:new).with(:foo)
+          expect(Bucket).to have_received(:new).with(:bar)
+          expect(Bucket).to have_received(:new).with(:baz)
         end
       end
     end

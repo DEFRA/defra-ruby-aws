@@ -2,6 +2,6 @@
 
 RSpec.describe DefraRuby::Aws do
   it "has a version number" do
-    expect(DefraRuby::Aws::VERSION).not_to be nil
+    expect(DefraRuby::Aws::VERSION).not_to be_nil
   end
 end
