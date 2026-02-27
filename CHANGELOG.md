@@ -2,7 +2,25 @@
 
 ## [Unreleased](https://github.com/defra/defra-ruby-aws/tree/HEAD)
 
-[Full Changelog](https://github.com/defra/defra-ruby-aws/compare/v0.5.0...HEAD)
+[Full Changelog](https://github.com/defra/defra-ruby-aws/compare/v0.5.1...HEAD)
+
+**Merged pull requests:**
+
+- Feature/ruby 4215 tech debt upgrade defra ruby aws gem [\#30](https://github.com/DEFRA/defra-ruby-aws/pull/30) ([brujeo](https://github.com/brujeo))
+
+## [v0.5.1](https://github.com/defra/defra-ruby-aws/tree/v0.5.1) (2025-09-17)
+
+[Full Changelog](https://github.com/defra/defra-ruby-aws/compare/v0.5.0...v0.5.1)
+
+**Merged pull requests:**
+
+- gem version 0.5.1 [\#29](https://github.com/DEFRA/defra-ruby-aws/pull/29) ([PaulDoyle-EA](https://github.com/PaulDoyle-EA))
+- chore/RUBY-4020\_aws\_deprecation\_warning [\#28](https://github.com/DEFRA/defra-ruby-aws/pull/28) ([PaulDoyle-EA](https://github.com/PaulDoyle-EA))
+- Release/v0.5.0 [\#27](https://github.com/DEFRA/defra-ruby-aws/pull/27) ([PaulDoyle-EA](https://github.com/PaulDoyle-EA))
+
+## [v0.5.0](https://github.com/defra/defra-ruby-aws/tree/v0.5.0) (2022-08-26)
+
+[Full Changelog](https://github.com/defra/defra-ruby-aws/compare/v0.4.0...v0.5.0)
 
 **Implemented enhancements:**
 
@@ -10,14 +28,8 @@
 
 **Merged pull requests:**
 
-- chore/RUBY-4020\_aws\_deprecation\_warning [\#28](https://github.com/DEFRA/defra-ruby-aws/pull/28) ([PaulDoyle-EA](https://github.com/PaulDoyle-EA))
-- Release/v0.5.0 [\#27](https://github.com/DEFRA/defra-ruby-aws/pull/27) ([PaulDoyle-EA](https://github.com/PaulDoyle-EA))
 - Update CI link in SonarCloud config [\#25](https://github.com/DEFRA/defra-ruby-aws/pull/25) ([irisfaraway](https://github.com/irisfaraway))
 - Create Dependabot config file [\#24](https://github.com/DEFRA/defra-ruby-aws/pull/24) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-
-## [v0.5.0](https://github.com/defra/defra-ruby-aws/tree/v0.5.0) (2022-08-26)
-
-[Full Changelog](https://github.com/defra/defra-ruby-aws/compare/v0.4.0...v0.5.0)
 
 ## [v0.4.0](https://github.com/defra/defra-ruby-aws/tree/v0.4.0) (2020-12-07)
 
